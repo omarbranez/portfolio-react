@@ -5,10 +5,11 @@ import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
-import { Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
 function App() {
   return (
+    <BrowserRouter>
     <Routes>
       <Route path='/' element={<Landing/>}/>
       <Route path='/blog' element={<Blog/>}/>
@@ -17,6 +18,7 @@ function App() {
       <Route path='/aboutme' element={<AboutMe/>}/>
       <Route path='/contact' element={<Contact/>}/>
     </Routes>
+    </BrowserRouter>
   );
 }
 
