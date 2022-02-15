@@ -46,7 +46,7 @@ const Skills = () => {
                     <rect x="763" y="53" fill="#fff" opacity="0" width="194" height="249" cursor="grab" onClick={handleFrontClick}/>
                 </svg>
             </div>
-            <div style={{position: "absolute", top: "0"}}>
+            <div style={{position: "absolute", top: "0", userSelect: "none"}}>
                 <span style={{fontSize: "10vh", webkitTextFillColor: "white", textShadow:"-2px -2px 2px #000, 2px -2px 2px #000, 2px -2px 2px #000, 2px  2px   2px #000,2px  2px 2px #000,2px    2px 2px #000,-2px  2px 2px #000,-2px  2px   2px #000"}}>Omar Branez</span><br/>
             <span style={{fontSize: "5vh", webkitTextFillColor: "white", textShadow:"-2px -2px 2px #000, 2px -2px 2px #000, 2px -2px 2px #000, 2px  2px   2px #000,2px  2px 2px #000,2px    2px 2px #000,-2px  2px 2px #000,-2px  2px   2px #000"}}>Brooklyn-based Full Stack Developer</span>
             <div style={{top:"2vh", left: "70vw", position: "absolute", }}>
