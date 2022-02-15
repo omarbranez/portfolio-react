@@ -9,7 +9,7 @@ const Skills = () => {
     const FrontEndSkills = ({showMore}) => {
         return (
             <div>
-                <span style={{fontSize: "6vh", fontWeight: "bold"}}>Front End Proficiencies</span>
+                <span style={{fontSize: "6vh", fontWeight: "bold", webkitTextFillColor: "white", textShadow:"-2px -2px 2px #000, 2px -2px 2px #000, 2px -2px 2px #000, 2px  2px   2px #000,2px  2px 2px #000,2px    2px 2px #000,-2px  2px 2px #000,-2px  2px   2px #000"}}>Front End Proficiencies</span>
                 <div style={{display: showMore ? "block" : "none"}}>
                 <span>More Things</span>
 
@@ -22,7 +22,7 @@ const Skills = () => {
         return (
             <div>
 
-            <span style={{fontSize: "6vh", fontWeight: "bold"}}>Back End Proficiencies</span>
+            <span style={{fontSize: "6vh", fontWeight: "bold", webkitTextFillColor: "white", textShadow:"-2px -2px 2px #000, 2px -2px 2px #000, 2px -2px 2px #000, 2px  2px   2px #000,2px  2px 2px #000,2px    2px 2px #000,-2px  2px 2px #000,-2px  2px   2px #000"}}>Back End Proficiencies</span>
             <div style={{display: showMore ? "block" : "none"}}>
                 <span>More Things</span>
             </div>
@@ -47,8 +47,8 @@ const Skills = () => {
                 </svg>
             </div>
             <div style={{position: "absolute", top: "0"}}>
-                <span style={{fontSize: "10vh"}}>Omar Branez</span><br/>
-            <span style={{fontSize: "5vh"}}>Brooklyn-based Full Stack Developer</span>
+                <span style={{fontSize: "10vh", webkitTextFillColor: "white", textShadow:"-2px -2px 2px #000, 2px -2px 2px #000, 2px -2px 2px #000, 2px  2px   2px #000,2px  2px 2px #000,2px    2px 2px #000,-2px  2px 2px #000,-2px  2px   2px #000"}}>Omar Branez</span><br/>
+            <span style={{fontSize: "5vh", webkitTextFillColor: "white", textShadow:"-2px -2px 2px #000, 2px -2px 2px #000, 2px -2px 2px #000, 2px  2px   2px #000,2px  2px 2px #000,2px    2px 2px #000,-2px  2px 2px #000,-2px  2px   2px #000"}}>Brooklyn-based Full Stack Developer</span>
             <div style={{top:"2vh", left: "70vw", position: "absolute", }}>
 
             <FrontEndSkills showMore={showFront}/>
