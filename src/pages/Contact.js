@@ -1,23 +1,35 @@
 import {useState, useRef} from 'react'
 import { Box, Grid, FormControl, TextField, FormHelperText, Typography, Button } from '@material-ui/core'
 import emailjs from '@emailjs/browser'
+import ReCAPTCHA from 'react-google-recaptcha'
 const Contact = () => {
 
     const contactFormRef = useRef()
-    
+    const captchaRef = useRef(null)
+    const [formErrorMessage, setFormErrorMessage] = useState({})
     const [values, setValues] = useState({
         name: '',
         email: '',
         subject: '',
         message: '',
+        captchaToken: '',
     })
 
     const handleChange = (e) => {
         setValues({...values, [e.target.name]: e.target.value})
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
+        setValues({...values, captchaToken: await captchaRef.current.executeAsync})
+        captchaRef.current.reset()
+        if (!values.name || !values.email || !values.subject || !values.message ){
+            setFormErrorMessage({ fields: "Please complete all fields"})
+            return
+        }
+        if (captchaRef && !values.captchaToken) {
+            setFormErrorMessage({ fields: "Please complete reCAPTCHA challenge"})
+        }
         emailjs.sendForm('service_xmvrwzh', 'template_vleu854', contactFormRef.current,'user_5RbEblyXHTHsx5gUglwlb')
         .then(e.target.reset())
         .catch(err => console.log(err.text))
@@ -43,17 +55,25 @@ const Contact = () => {
                         <FormControl margin="normal">
                             <TextField variant="outlined" required name="message" multiline rows={4} label="Message" value={values.message} onChange={handleChange}/>
                         </FormControl>
+                        <FormHelperText>
+                            {formErrorMessage.fields}
+                        </FormHelperText>
+                        <ReCAPTCHA
+                            sitekey={`${process.env.REACT_APP_C_KEY}`}
+                            // sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // public key for testing
+                            ref={captchaRef}
+                        />
                         <Box mt={4} display="flex" justifyContent="center" pt={1}>
-                                <Button
-                                    style={{ padding: "2vh 8vh" }}
-                                    type="submit"
-                                    variant="contained"
-                                    size="large"
-                                    color="primary"
-                                >
-                                    Submit
-                                </Button>
-                            </Box>
+                            <Button
+                                style={{ padding: "2vh 8vh" }}
+                                type="submit"
+                                variant="contained"
+                                size="large"
+                                color="primary"
+                            >
+                            Submit
+                            </Button>
+                        </Box>
                     </Grid>
                 </form>
             </Box>
