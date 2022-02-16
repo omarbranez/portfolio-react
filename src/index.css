@@ -27,3 +27,78 @@ code {
 	top: 0;
 	left: 0;
 }
+
+.corgiPartTooltip {
+	position: relative;
+  }
+  .corgiPartTooltip:before,
+  .corgiPartTooltip:after {
+	display: block;
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+  }
+  .corgiPartTooltip:after {
+	  border-right: 6px solid transparent;
+	  border-bottom: 6px solid rgba(0,0,0,.75); 
+	border-left: 6px solid transparent;
+	content: '';
+	height: 0;
+	  top: 20px;
+	  left: 20px;
+	width: 0;
+  }
+  .corgiPartTooltip:before {
+	background: rgba(0,0,0,.75);
+	border-radius: 2px;
+	color: #fff;
+	content: attr(data-title);
+	font-size: 14px;
+	padding: 6px 10px;
+	  top: 26px;
+	white-space: nowrap;
+  }
+
+.corgiPartTooltip.expand:before {
+	transform: scale3d(.2,.2,1);
+	transition: all .2s ease-in-out;
+  }
+  .corgiPartTooltip.expand:after {
+	transform: translate3d(0,6px,0);
+	transition: all .1s ease-in-out;
+  }
+  .corgiPartTooltip.expand:hover:before,
+  .corgiPartTooltip.expand:hover:after {
+	opacity: 1;
+	transform: scale3d(1,1,1);
+  }
+  .corgiPartTooltip.expand:hover:after {
+	transition: all .2s .1s ease-in-out;
+  }
+  
+  /* .corgiPartTooltip{
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+  }
+
+  .corgiPartTooltip .corgiPartTooltipText {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;  position: absolute;
+	z-index: 5;
+  }
+
+  .corgiPartTooltip:hover .corgiPartTooltipText {
+	visibility: visible;
+  } */
+
+  li {
+	cursor: pointer; 
+	display: inline-block; 
+	padding: 0 10px;
+  }
