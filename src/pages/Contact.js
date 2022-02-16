@@ -49,7 +49,7 @@ const Contact = () => {
             <Box pt="15vh" width="60%" justifyContent="center" align="center">
                 <Grid item container direction="column" justifyContent="center" alignItems="center" style={{maxWidth: "60%", flexBasis: "50%", }}>
                 <Typography align="center"  style={{ fontSize: "2.5vh", webkitTextFillColor: "white", textShadow: "-2px -2px 2px #000, 2px -2px 2px #000, 2px -2px 2px #000, 2px  2px 2px #000,2px 2px 2px #000,2px 2px 2px #000,-2px  2px 2px #000,-2px 2px 2px #000" }}>I am currently available for developer work whether full-stack or single-stack, whether full-time or contract.</Typography>
-                <Typography align="center"  style={{ fontSize: "2.5vh", webkitTextFillColor: "white", textShadow: "-2px -2px 2px #000, 2px -2px 2px #000, 2px -2px 2px #000, 2px  2px 2px #000,2px 2px 2px #000,2px 2px 2px #000,-2px  2px 2px #000,-2px 2px 2px #000" }}>Please contact me with any questions or relavant opportunities</Typography>
+                <Typography align="center"  style={{ fontSize: "2.5vh", webkitTextFillColor: "white", textShadow: "-2px -2px 2px #000, 2px -2px 2px #000, 2px -2px 2px #000, 2px  2px 2px #000,2px 2px 2px #000,2px 2px 2px #000,-2px  2px 2px #000,-2px 2px 2px #000" }}>Please contact me with any questions or relevant opportunities</Typography>
                 </Grid>
             </Box>
                 <form ref={contactFormRef} onSubmit={handleSubmit}>
