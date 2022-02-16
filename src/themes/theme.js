@@ -5,12 +5,12 @@ export const theme = createTheme({
     MuiTooltip: {
       tooltip: {
         fontSize: "4vh",
-        color: "black",
-        backgroundColor: "white"
+        color: "white",
+        backgroundColor: "black"
       },
       arrow: {
         fontSize: "4vh",
-        color: "white"
+        color: "black"
       }
     }
   }

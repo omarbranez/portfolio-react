@@ -1,7 +1,10 @@
 import corgiSleep from './assets/background-corgi-sleep.jpg'
 import { Tooltip, Typography } from '@material-ui/core'
-import { MuiThemeProvider } from '@material-ui/core/styles'
+import { ThemeProvider } from '@material-ui/core/styles'
 import { theme } from './themes/theme'
+import {motion} from 'framer-motion'
+
+
 const Landing = () => {
 
 
@@ -12,7 +15,7 @@ const Landing = () => {
                     <image href={corgiSleep} />
                     <g>
                         <g>
-                            <MuiThemeProvider theme={theme}>
+                            <ThemeProvider theme={theme}>
                             <Tooltip title="Contact Me" arrow placement="top">
                                 <a xlinkHref="/contact" >
                                     <path
@@ -21,7 +24,7 @@ const Landing = () => {
                                         fillOpacity="0" />
                                 </a>
                             </Tooltip>
-                            </MuiThemeProvider>
+                            
                             <Tooltip title="My Languages" arrow placement="bottom">
                                 <a xlinkHref="/skills">
                                     <path
@@ -46,6 +49,7 @@ const Landing = () => {
                                         d="M 433 593 L 235 649 96 690 L 153 810 225 861 L 405 819 522 783 L 576 770 576 663" shape="poly" fillOpacity="0" />
                                 </a>
                             </Tooltip>
+                            </ThemeProvider>
                         </g>
                     </g>
                 </svg>

@@ -1,8 +1,9 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import CorgiSploot from '../assets/background-corgi-sploot-2.jpg' 
 import {Grid, Typography} from '@material-ui/core'
 
 const Skills = () => {
+ 
     const [showFront, setShowFront] = useState(false)
     const [showBack, setShowBack] = useState(false)
 

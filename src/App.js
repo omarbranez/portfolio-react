@@ -11,9 +11,10 @@ import {AnimatePresence} from 'framer-motion'
 function App() {
   return (
     
-    <AnimatePresence exitBeforeEnter>
     <BrowserRouter>
+    <AnimatePresence exitBeforeEnter>
     <Routes>
+
       <Route path='/' element={<Landing/>}/>
       <Route path='/blog' element={<Blog/>}/>
       <Route path='/skills' element={<Skills/>}/>
@@ -21,8 +22,8 @@ function App() {
       <Route path='/aboutme' element={<AboutMe/>}/>
       <Route path='/contact' element={<Contact/>}/>
     </Routes>
+      </AnimatePresence>
     </BrowserRouter>
-    </AnimatePresence>
   );
 }
 
