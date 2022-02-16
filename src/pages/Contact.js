@@ -41,7 +41,7 @@ const Contact = () => {
             backgroundImage: 'url(/IMG_2971.png)',
             backgroundRepeat: 'no-repeat',
             backgroundSize: "cover",
-            backgroundPosition:" center center",
+            backgroundPosition:" 20% 20%",
             backgroundAttachment: "fixed",
             width: "100vw",
             height: "100vh"}}>
