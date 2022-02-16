@@ -6,13 +6,11 @@ import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
-import {AnimatePresence} from 'framer-motion'
 
 function App() {
   return (
     
     <BrowserRouter>
-    <AnimatePresence exitBeforeEnter>
     <Routes>
 
       <Route path='/' element={<Landing/>}/>
@@ -22,7 +20,6 @@ function App() {
       <Route path='/aboutme' element={<AboutMe/>}/>
       <Route path='/contact' element={<Contact/>}/>
     </Routes>
-      </AnimatePresence>
     </BrowserRouter>
   );
 }

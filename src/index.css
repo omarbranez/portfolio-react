@@ -29,3 +29,6 @@ code {
 	left: 0;
 }
 
+form {
+	max-height: 50vh;
+}

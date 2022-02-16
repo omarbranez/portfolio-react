@@ -2,7 +2,7 @@ import corgiSleep from './assets/background-corgi-sleep.jpg'
 import { Tooltip, Typography } from '@material-ui/core'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { theme } from './themes/theme'
-import {motion} from 'framer-motion'
+// import {motion} from 'framer-motion'
 
 
 const Landing = () => {
