@@ -2,7 +2,6 @@ import corgiSleep from './assets/background-corgi-sleep.jpg'
 import { Tooltip, Typography } from '@material-ui/core'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { theme } from './themes/theme'
-// import {motion} from 'framer-motion'
 
 
 const Landing = () => {
@@ -54,10 +53,7 @@ const Landing = () => {
                     </g>
                 </svg>
             </div>
-            <div style={{ position: "absolute", top: "0" }}>
-                <span style={{ fontSize: "10vh" }}>Omar Branez</span><br />
-                <span style={{ fontSize: "5vh" }}>Brooklyn-based Full Stack Engineer</span>
-            </div>
+
         </div>
     )
 }
