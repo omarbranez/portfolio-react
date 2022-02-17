@@ -54,7 +54,9 @@ form {
 }
 
 .row :first-child {
-	flex: 1 1 0
+	flex: 1 1 0;
+	/* max-height: 50% */
+	height:
 }
 
 .row :nth-child(2){

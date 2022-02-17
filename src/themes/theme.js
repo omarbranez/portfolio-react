@@ -1,4 +1,4 @@
-import {createTheme, withStyles} from '@material-ui/core/styles'
+import {createTheme} from '@material-ui/core/styles'
 
 export const theme = createTheme({
   overrides: {
@@ -15,3 +15,4 @@ export const theme = createTheme({
     }
   }
 });
+

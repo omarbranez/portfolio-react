@@ -35,24 +35,23 @@ const Blog = () => {
     },[])
     const handleScrollLeftClick = () => {
         setDisplayed(displayed.map(idx => idx - 1))
+        setCentered(displayed[1])
     }
     const handleScrollRightClick = () => {
         setDisplayed(displayed.map(idx => idx + 1))
+        setCentered(displayed[1])
     }
-
-    console.log(values.posts)
+// console.log(displayed[0])
+    console.log(values.posts[displayed[0]])
     return (
-        <div className="full-height" style={{position: "absolute", backgroundImage: 'url(/background-corgi-reading.jpg)', backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundAttachment: "fixed", width: "100vw",  height:"98vh", backgroundPosition: " 20% 20%",}}>
-
-        <div className="container" >
-            <div className="row">
-                {values.posts ? values.posts.map((post, index) => <BlogCard key={index} index={index} {...post} displayed={displayed} centered={centered}/>) : <h2>Loading</h2>}
+        <div className="full-height" style={{ position: "absolute", backgroundImage: 'url(/background-corgi-reading.jpg)', backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundAttachment: "fixed", width: "100vw", height: "98vh", backgroundPosition: " 20% 20%", }}>
+            <div className="container" >
+                <div className="row">
+                    {values.posts ? values.posts.map((post, index,) => displayed.includes(index) && <BlogCard key={index} {...post} centered={centered === index} />) : <h2>Loading</h2>}
+                </div>
             </div>
-        </div>
-        <button onClick={handleScrollLeftClick}>Scroll Left</button>
-        <button onClick={handleScrollRightClick}>
-            Scroll Right
-        </button>
+            <button onClick={handleScrollLeftClick}>Scroll Left</button>
+            <button onClick={handleScrollRightClick}>Scroll Right</button>
         </div>
     )
 }

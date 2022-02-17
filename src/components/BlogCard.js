@@ -1,52 +1,57 @@
-import { Link } from 'react-router-dom'
 import moment from 'moment'
-import c from "./BlogCard.module.css";
+import { makeStyles } from '@material-ui/core/styles'
+import { red } from '@material-ui/core/colors'
+import {Card, CardHeader, CardMedia, CardContent, CardActions, Typography, Link} from '@material-ui/core'
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      maxWidth: 345,
+      transform: "scale(2.5)"
+    },
+    media: {
+      height: 0,
+      paddingTop: '56.25%', // 16:9
+    },
+    expand: {
+      transform: 'rotate(0deg)',
+      marginLeft: 'auto',
+      transition: theme.transitions.create('transform', {
+        duration: theme.transitions.duration.shortest,
+      }),
+    },
+    expandOpen: {
+      transform: 'rotate(180deg)',
+    },
+    avatar: {
+      backgroundColor: red[500],
+    },
+  }))
+  
 const BlogCard = (props) => {
-    // console.log(props.link)
-    const displayed = props.displayed
+    const classes = useStyles()
+
     const ToText = (node) => {
-        let tag = document.createElement("div");
-        tag.innerHTML = node;
-        node = tag.innerText;
-        return node;
+        let tag = document.createElement("div")
+        tag.innerHTML = node
+        node = tag.firstChild.childNodes[3].innerText
+        return node
     }
+
     return (
-        <div className={`col-md-4 col-sm-6 col-xs-12 ${c.grid}`}>
-        {displayed.includes(props.index) && <div className={c.cardsmall}>
-            {/* <div className={c.cardsmall}> */}
-                <div
-                    className={c.cardpost__image}
-                    style={{ backgroundImage: `url(${props.thumbnail})` }}
-                >
-                </div>
-
-                <div className="card-body">
-                    <h5 className="card-title">
-
-                        <a
-                            href={props.link}
-                            className={c.textfiordblue}
-                            target="_blank"
-                        >
-                            {props.title}
-                        </a>
-                    </h5>
-
-                    <p className={c.cardText}>{`${ToText(
-                        props.description.substring(0, 1000)
-                    )}...`}</p>
-                    <br />
-
-                    {props.author}
-
-                    <br />
-                    <span className="text-muted">
-                        {moment(props.pubDate).format("MMM DD, YYYY hh:mm")}
-                    </span>
-                </div>
-            </div>}
-            {/* </div> */}
-        </div>
+        <Card raised={props.centered === props.index} className={`classes.`+`${props.centered === props.index ? "expand" : "root" }`}>
+            <CardHeader title={props.title}/>
+            <CardMedia className={classes.media} image={`${props.thumbnail}`}/>
+            <CardContent >
+                {props.description && 
+                <Typography className="card-text">{`${ToText(props.description.substring(0, 1000))}`}</Typography>}
+                <Link href={props.link} underline="hover" >
+                <Typography>Continue Reading on Medium</Typography>
+                </Link>
+                <Typography >Published: {moment(props.pubDate).format("MMM DD, YYYY hh:mm")} </Typography>
+                {props.categories && 
+                <Typography className="card-tags">Tags: {props.categories.map(tag=> `${tag}, `)}</Typography>}
+            </CardContent>
+        </Card>
     )
 }
 
