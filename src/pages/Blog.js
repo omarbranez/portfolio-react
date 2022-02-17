@@ -11,6 +11,8 @@ const Blog = () => {
         isLoading: true,
         error: null
     })
+    const [displayed, setDisplayed] = useState([0,1,2])
+    const [centered, setCentered] = useState(0)
     const [show, setShow] = useState(null)
     // console.log(values.posts)
     const mediumURL = "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@omar-branez";
@@ -31,15 +33,26 @@ const Blog = () => {
         })
 
     },[])
-    
+    const handleScrollLeftClick = () => {
+        setDisplayed(displayed.map(idx => idx - 1))
+    }
+    const handleScrollRightClick = () => {
+        setDisplayed(displayed.map(idx => idx + 1))
+    }
+
+    console.log(values.posts)
     return (
-        <div className="bg-image" height="100%" style={{position: "absolute", backgroundImage: 'url(/background-corgi-reading.jpg)', backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundAttachment: "fixed", width: "100vw",  height:"98vh", backgroundPosition: " 20% 20%",}}>
+        <div className="full-height" style={{position: "absolute", backgroundImage: 'url(/background-corgi-reading.jpg)', backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundAttachment: "fixed", width: "100vw",  height:"98vh", backgroundPosition: " 20% 20%",}}>
 
         <div className="container" >
             <div className="row">
-                {values.posts ? values.posts.map((post, index) => <BlogCard key={index} {...post} />) : <h2>Loading</h2>}
+                {values.posts ? values.posts.map((post, index) => <BlogCard key={index} index={index} {...post} displayed={displayed} centered={centered}/>) : <h2>Loading</h2>}
             </div>
         </div>
+        <button onClick={handleScrollLeftClick}>Scroll Left</button>
+        <button onClick={handleScrollRightClick}>
+            Scroll Right
+        </button>
         </div>
     )
 }

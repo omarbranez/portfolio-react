@@ -3,6 +3,7 @@ import moment from 'moment'
 import c from "./BlogCard.module.css";
 const BlogCard = (props) => {
     // console.log(props.link)
+    const displayed = props.displayed
     const ToText = (node) => {
         let tag = document.createElement("div");
         tag.innerHTML = node;
@@ -11,7 +12,8 @@ const BlogCard = (props) => {
     }
     return (
         <div className={`col-md-4 col-sm-6 col-xs-12 ${c.grid}`}>
-            <div className={c.cardsmall}>
+        {displayed.includes(props.index) && <div className={c.cardsmall}>
+            {/* <div className={c.cardsmall}> */}
                 <div
                     className={c.cardpost__image}
                     style={{ backgroundImage: `url(${props.thumbnail})` }}
@@ -42,7 +44,8 @@ const BlogCard = (props) => {
                         {moment(props.pubDate).format("MMM DD, YYYY hh:mm")}
                     </span>
                 </div>
-            </div>
+            </div>}
+            {/* </div> */}
         </div>
     )
 }
