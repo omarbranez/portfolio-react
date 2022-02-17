@@ -20,7 +20,7 @@ const Landing = () => {
                                     <path
                                         d="M 986 180 L 851 214 770 285 L 800 320 857 349 L 1030 351 1056 275 L 1032 205 "
                                         shape="poly"
-                                        fillOpacity="0" />
+                                        fillOpacity="1" />
                                 </a>
                             </Tooltip>
                             
@@ -53,7 +53,6 @@ const Landing = () => {
                     </g>
                 </svg>
             </div>
-
         </div>
     )
 }
