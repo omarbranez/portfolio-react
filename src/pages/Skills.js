@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import CorgiSploot from '../assets/background-corgi-sploot-2.jpg'
 import { Grid, Typography } from '@material-ui/core'
-import Header from '../components/Header'
 
 const Skills = () => {
 
@@ -54,8 +53,6 @@ const Skills = () => {
             <div style={{ top: "45vh", left: "8vw", position: "absolute", }}>
                 <BackEndSkills showMore={showBack} />
             </div>
-            {/* <Header/> */}
-
         </div>
     )
 }

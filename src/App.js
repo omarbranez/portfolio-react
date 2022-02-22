@@ -1,4 +1,5 @@
 import './App.css';
+import Construction from './pages/Construction';
 import Landing from './Landing';
 import AboutMe from './pages/AboutMe';
 import Blog from './pages/Blog';
@@ -14,12 +15,13 @@ function App() {
     <Header/>
     <Routes>
 
-      <Route path='/' element={<Landing/>}/>
-      <Route path='/blog' element={<Blog/>}/>
+      {/* <Route path='/' element={<Landing/>}/> */}
+      <Route path="*" element={<Construction/>}/>
+      {/* <Route path='/blog' element={<Blog/>}/>
       <Route path='/skills' element={<Skills/>}/>
       <Route path='/projects' element={<Projects/>}/>
       <Route path='/aboutme' element={<AboutMe/>}/>
-      <Route path='/contact' element={<Contact/>}/>
+      <Route path='/contact' element={<Contact/>}/> */}
     </Routes>
     </BrowserRouter>
   );

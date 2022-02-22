@@ -11,7 +11,7 @@ const Blog = () => {
         isLoading: true,
         error: null
     })
-    const [displayed, setDisplayed] = useState([0,1,2])
+    const [displayed, setDisplayed] = useState([])
     const [centered, setCentered] = useState(0)
     const [show, setShow] = useState(null)
     // console.log(values.posts)
@@ -27,27 +27,42 @@ const Blog = () => {
         const posts = res.filter(item => item.categories.length > 0)
         const title = data.feed.title
         setValues({profile: { title: title, url: url, avatar:avatar}, posts: posts, isLoading: false})
-        })
-        .catch((e)=> {
-            console.log(e)
-        })
+        setDisplayed([posts[0], posts[1]])
+    })
+    .catch((e)=> {
+        console.log(e)
+    })
 
     },[])
+
+    console.log(displayed)
     const handleScrollLeftClick = () => {
+        if(displayed.length === 2){
+            setCentered(displayed[0])
+            // return 
+        } else 
         setDisplayed(displayed.map(idx => idx - 1))
-        setCentered(displayed[1])
+        // setCentered(displayed[1])
     }
     const handleScrollRightClick = () => {
-        setDisplayed(displayed.map(idx => idx + 1))
-        setCentered(displayed[1])
+        if(displayed.length === 2) {
+            setDisplayed([...displayed, values.posts[2]])
+            setCentered(centered + 1)
+        } else {
+            setDisplayed([...displayed, values])
+            setCentered(centered + 1)
+        }
+        // if((displayed[2] + 1) >= values.posts.length ){
+        //     setDisplayed([])
+        // }
+        // setCentered(displayed[1])
     }
-// console.log(displayed[0])
-    console.log(values.posts[displayed[0]])
     return (
         <div className="full-height" style={{ position: "absolute", backgroundImage: 'url(/background-corgi-reading.jpg)', backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundAttachment: "fixed", width: "100vw", height: "98vh", backgroundPosition: " 20% 20%", }}>
             <div className="container" >
-                <div className="row">
-                    {values.posts ? values.posts.map((post, index,) => displayed.includes(index) && <BlogCard key={index} {...post} centered={centered === index} />) : <h2>Loading</h2>}
+                <div className="row with-three">
+                    {/* //  `+`${displayed.length === 2 ? "with-two" : "with-three"}`}> */}
+                    {displayed ? displayed.map((post, index) => <BlogCard key={index} {...post} centered={centered === index} />) : <h2>Loading</h2>}
                 </div>
             </div>
             <button onClick={handleScrollLeftClick}>Scroll Left</button>

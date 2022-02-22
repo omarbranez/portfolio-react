@@ -48,22 +48,30 @@ form {
 }
 .row {
 	display: flex;
+	flex-direction: row;
 	flex-wrap: nowrap;
 	margin-right: -15px;
 	margin-left: -15px;
 }
 
-.row :first-child {
-	flex: 1 1 0;
-	/* max-height: 50% */
-	height:
+.row .with-two :first-child{
+	flex: 2 
 }
 
-.row :nth-child(2){
+.row .with-two :nth-child(2){
+	flex: 1
+}
+.row .with-three :first-child {
+	flex: 1 1 0;
+	/* max-height: 50% */
+	/* height: */
+}
+
+.row .with-three :nth-child(2){
 	flex: 2 1 0
 }
 
-.row :nth-child(3) {
+.row .with-three :nth-child(3) {
 	flex: 1 1 0
 }
 /* .row > * {
@@ -78,3 +86,39 @@ form {
 	position: relative;
 	width: 100%;
 } */
+
+.typewriter span {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI';
+	top: 50%;
+	left: 35%;
+	line-height: 1.5em;
+	font-size: 3em;
+	position: absolute;
+	overflow: hidden; /* Ensures the content is not revealed until the animation */
+	border-right: .15em solid orange; /* The typwriter cursor */
+	white-space: nowrap; /* Keeps the content on a single line */
+	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+	letter-spacing: .1em; /* Adjust as needed */
+	animation: 
+	  typing 3.5s steps(40, end),
+	  blink-caret .75s step-end infinite;
+	z-index: 5;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+	from { width: 0 }
+	to { width: 50% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+	from, to { border-color: transparent }
+	50% { border-color:black; }
+  }
+
+  .outlined {
+	font-size: "8vh";
+	-webkit-text-fill-color: white;
+	text-shadow: -2px -2px 2px #000, 2px -2px 2px #000, 2px -2px 2px #000, 2px  2px 2px #000,2px 2px 2px #000,2px 2px 2px #000,-2px  2px 2px #000,-2px 2px 2px #000;
+  }

@@ -1,4 +1,5 @@
 import moment from 'moment'
+import {useState} from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { red } from '@material-ui/core/colors'
 import {Card, CardHeader, CardMedia, CardContent, CardActions, Typography, Link} from '@material-ui/core'
@@ -6,29 +7,29 @@ import {Card, CardHeader, CardMedia, CardContent, CardActions, Typography, Link}
 const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 345,
-      transform: "scale(2.5)"
+      maxHeight: 400,
+      transition: "transform 0.15s ease-in-out",
+    //   "&:hover": {
+        boxShadow:
+          "0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%)",
+        transform: "scale3d(1.25, 1.25, 1)"
+    //   },
+    },
+    side: {
+        width: "20vw",
+        // max
     },
     media: {
       height: 0,
       paddingTop: '56.25%', // 16:9
     },
-    expand: {
-      transform: 'rotate(0deg)',
-      marginLeft: 'auto',
-      transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-      }),
-    },
-    expandOpen: {
-      transform: 'rotate(180deg)',
-    },
-    avatar: {
-      backgroundColor: red[500],
-    },
   }))
   
 const BlogCard = (props) => {
     const classes = useStyles()
+    // console.log(props.index)
+    console.log(props.centered, props.title)
+    const [raised, setRaised] = useState({shadow: 1})
 
     const ToText = (node) => {
         let tag = document.createElement("div")
@@ -37,8 +38,16 @@ const BlogCard = (props) => {
         return node
     }
 
+const handleMouseOver = () => {
+    setRaised({ shadow: 3 })
+}
+
+const handleMouseOut = () => {
+    setRaised({ shadow: 1})
+}
     return (
-        <Card raised={props.centered === props.index} className={`classes.`+`${props.centered === props.index ? "expand" : "root" }`}>
+        <Card className={props.centered ? classes.root : classes.side} classes={{root: raised ? classes.cardHovered: ''}} onMouseOver={props.centered !== false ? handleMouseOver : null} 
+            onMouseOut={props.centered ? handleMouseOut : null}>
             <CardHeader title={props.title}/>
             <CardMedia className={classes.media} image={`${props.thumbnail}`}/>
             <CardContent >
